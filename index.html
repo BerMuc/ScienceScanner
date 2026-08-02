@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#071d44" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Nathan Laboratories Access Scanner</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app" class="app-shell">
+    <section id="start-screen" class="screen start-screen active" aria-labelledby="start-title">
+      <div class="credential-card">
+        <div class="double-border"></div>
+        <div class="brand-lockup" id="secret-admin-trigger" aria-label="Nathan Laboratories">
+          <div class="brand-title">NATHAN LABORATORIES</div>
+          <div class="atom-logo" aria-hidden="true">
+            <svg viewBox="0 0 180 140" role="img">
+              <ellipse cx="90" cy="70" rx="70" ry="27" fill="none" stroke="#071d44" stroke-width="5"/>
+              <ellipse cx="90" cy="70" rx="70" ry="27" fill="none" stroke="#071d44" stroke-width="5" transform="rotate(60 90 70)"/>
+              <ellipse cx="90" cy="70" rx="70" ry="27" fill="none" stroke="#071d44" stroke-width="5" transform="rotate(120 90 70)"/>
+              <circle cx="90" cy="70" r="22" fill="#fffaf0" stroke="#071d44" stroke-width="5"/>
+              <text x="90" y="79" text-anchor="middle" font-size="30" font-weight="900" fill="#2d6b1f">6</text>
+              <circle cx="23" cy="70" r="8" fill="#2184d6" stroke="#071d44" stroke-width="3"/>
+              <circle cx="127" cy="18" r="8" fill="#2d6b1f" stroke="#071d44" stroke-width="3"/>
+              <circle cx="130" cy="119" r="8" fill="#2184d6" stroke="#071d44" stroke-width="3"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="green-kicker">ENTRY CONTROL SYSTEM</div>
+        <h1 id="start-title" class="hero-title">JUNIOR SCIENTIST<br />ACCESS CHECK</h1>
+        <div class="dotted-rule"><span>★</span></div>
+        <p class="intro-copy">Mount this phone near the entrance. Junior scientists hold the QR code on the back of their ID card inside the scan frame.</p>
+
+        <button id="start-button" class="primary-button" type="button">
+          <span class="button-icon">⚛</span>
+          START LAB SCANNER
+        </button>
+        <p class="permission-note">The app will request the front camera and keep the screen awake while scanning.</p>
+
+        <div class="status-strip">
+          <span>FRONT CAMERA</span>
+          <span>•</span>
+          <span>PORTRAIT MODE</span>
+          <span>•</span>
+          <span>ACCESS #006</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="scanner-screen" class="screen scanner-screen" aria-labelledby="scanner-title">
+      <header class="scanner-header">
+        <div class="scanner-brand" id="scanner-admin-trigger">
+          <span class="mini-atom">⚛</span>
+          <div>
+            <div class="scanner-brand-name">NATHAN LABORATORIES</div>
+            <div class="scanner-brand-sub">AUTHORIZED ENTRY POINT</div>
+          </div>
+        </div>
+        <div class="live-pills">
+          <span id="camera-pill" class="live-pill"><i></i> FRONT CAMERA</span>
+          <span id="wake-pill" class="live-pill"><i></i> SCREEN AWAKE</span>
+        </div>
+      </header>
+
+      <div class="scanner-main">
+        <div class="instruction-kicker">PRESENT IDENTIFICATION CARD</div>
+        <h2 id="scanner-title">HOLD QR CODE IN FRAME</h2>
+
+        <div id="camera-frame" class="camera-frame" aria-live="polite">
+          <video id="camera-video" autoplay muted playsinline></video>
+          <div class="video-shade"></div>
+          <div class="scan-window">
+            <span class="corner tl"></span>
+            <span class="corner tr"></span>
+            <span class="corner bl"></span>
+            <span class="corner br"></span>
+            <span class="scan-line"></span>
+            <div class="qr-hint">QR</div>
+          </div>
+          <div id="camera-message" class="camera-message">Starting secure front camera…</div>
+        </div>
+
+        <div class="scan-instructions">
+          <div class="instruction-row"><span class="instruction-number">1</span><span>Turn the ID card around.</span></div>
+          <div class="instruction-row"><span class="instruction-number">2</span><span>Hold the QR code about 8–12 inches from the phone.</span></div>
+          <div class="instruction-row"><span class="instruction-number">3</span><span>Wait for laboratory clearance.</span></div>
+        </div>
+      </div>
+
+      <footer class="scanner-footer">
+        <span>ACTIVE EXPERIMENT</span>
+        <strong>BIRTHDAY EXPERIMENT #006</strong>
+        <span>AUTHORIZED PERSONNEL ONLY</span>
+      </footer>
+    </section>
+
+    <section id="granted-screen" class="screen result-screen granted-screen" aria-live="assertive">
+      <div class="result-card">
+        <div class="double-border"></div>
+        <div class="result-topline">NATHAN LABORATORIES</div>
+        <div class="result-symbol granted-symbol">✓</div>
+        <div class="result-label">CREDENTIAL VERIFIED</div>
+        <h2>ACCESS<br />GRANTED</h2>
+        <div class="result-divider"><span>★</span></div>
+        <div class="result-role-label">AUTHORIZED</div>
+        <div class="result-role">JUNIOR SCIENTIST</div>
+        <div class="assignment-box">
+          <span>CURRENT ASSIGNMENT</span>
+          <strong>BIRTHDAY EXPERIMENT #006</strong>
+        </div>
+        <div class="approved-stamp">APPROVED</div>
+        <div class="result-bottom">WELCOME TO NATHAN LABORATORIES</div>
+      </div>
+    </section>
+
+    <section id="denied-screen" class="screen result-screen denied-screen" aria-live="assertive">
+      <div class="result-card denied-card">
+        <div class="double-border"></div>
+        <div class="result-topline">NATHAN LABORATORIES</div>
+        <div class="result-symbol denied-symbol">!</div>
+        <div class="result-label denied-label">CREDENTIAL NOT RECOGNIZED</div>
+        <h2>ACCESS<br />DENIED</h2>
+        <p class="denied-copy">Please present an authorized Junior Scientist ID card.</p>
+        <div class="result-bottom">TRY AGAIN</div>
+      </div>
+    </section>
+
+    <section id="error-screen" class="screen error-screen" aria-live="assertive">
+      <div class="credential-card error-card">
+        <div class="double-border"></div>
+        <div class="brand-title small">NATHAN LABORATORIES</div>
+        <div class="error-icon">⚠</div>
+        <h2>SCANNER NEEDS ATTENTION</h2>
+        <p id="error-text">The front camera could not be started.</p>
+        <button id="retry-button" class="primary-button" type="button">RETRY SCANNER</button>
+        <button id="manual-test-button" class="secondary-button" type="button">TEST ACCESS SCREEN</button>
+      </div>
+    </section>
+
+    <dialog id="admin-dialog" class="admin-dialog">
+      <form method="dialog" class="admin-panel">
+        <h3>Adult Controls</h3>
+        <p>Use these only for setup and testing.</p>
+        <button id="admin-test-granted" type="button">Test Access Granted</button>
+        <button id="admin-test-denied" type="button">Test Access Denied</button>
+        <button id="admin-restart-camera" type="button">Restart Front Camera</button>
+        <button id="admin-fullscreen" type="button">Enter Full Screen</button>
+        <button id="admin-close" type="submit">Close</button>
+      </form>
+    </dialog>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
